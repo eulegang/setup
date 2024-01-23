@@ -16,23 +16,42 @@
     - name: starship
       command:
         cmd: 'cargo install starship'
+        creates: '/home/eulegang/.cargo/bin/starship'
 
     - name: ripgrep
       command:
         cmd: 'cargo install ripgrep'
+        creates: '/home/eulegang/.cargo/bin/rg'
 
     - name: hexyl
       command:
         cmd: 'cargo install hexyl'
+        creates: '/home/eulegang/.cargo/bin/hexyl'
 
     - name: fd
       command:
         cmd: 'cargo install fd-find'
+        creates: '/home/eulegang/.cargo/bin/fd'
 
     - name: exa
       command:
         cmd: 'cargo install exa'
+        creates: '/home/eulegang/.cargo/bin/exa'
 
     - name: delta
       command:
         cmd: 'cargo install git-delta'
+        creates: '/home/eulegang/.cargo/bin/delta'
+
+    - name: fetch rust-analyzer
+      ansible.builtin.git: 
+        repo: 'https://github.com/rust-lang/rust-analyzer'
+        dest: /home/eulegang/external/rust-analyzer
+  
+    - name: build rust-analyzer
+      command:
+        cmd: 'cargo xtask install --server'
+        chdir: /home/eulegang/external/rust-analyzer
+        creates: /home/eulegang/.cargo/bin/rust-analyzer
+
+
