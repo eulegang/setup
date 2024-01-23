@@ -6,42 +6,9 @@
 - import_playbook: playbooks/rust.yml
 - import_playbook: playbooks/font.yml
 - import_playbook: playbooks/kitty.yml
+- import_playbook: playbooks/neovim.yml
 
 - name: Install setup
   hosts: 127.0.0.1
   connection: local
 
-  tasks:
-    - name: packages
-      become: true
-      ansible.builtin.apt:
-        pkg:
-          - gcc
-          - build-essential
-          - gettext
-          - cmake
-          - ninja-build
-          - zsh
-          - kitty
-          - i3
-          - fish
-
-    - name: neovim
-      ansible.builtin.git:
-        repo: 'https://github.com/neovim/neovim'
-        dest: /home/eulegang/external/neovim
-
-    - name: rust-analizer
-      ansible.builtin.git: 
-        repo: 'https://github.com/rust-lang/rust-analyzer'
-        dest: /home/eulegang/external/rust-analyzer
-
-
-
-    - name: Setup aliases
-      ansible.builtin.template:
-        src: templates/aliases.j2
-        dest: /home/eulegang/.aliases.zsh
-        owner: eulegang
-        group: eulegang
-        mode: '0644' 
