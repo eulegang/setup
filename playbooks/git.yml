@@ -1,0 +1,21 @@
+---
+- name: git
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: package
+      become: true
+      ignore_errors: true
+      ansible.builtin.apt:
+        pkg:
+          - git
+
+    - name: push config
+      ansible.builtin.template:
+        src: ../templates/gitconfig.j2
+        dest: /home/eulegang/.gitconfig
+        owner: eulegang
+        group: eulegang
+        mode: '0644' 
+
+
