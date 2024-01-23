@@ -29,6 +29,10 @@
       command:
         cmd: 'cargo install fd-find'
 
+    - name: exa
+      command:
+        cmd: 'cargo install exa'
+
     - name: delta
       command:
         cmd: 'cargo install git-delta'
