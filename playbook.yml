@@ -4,6 +4,8 @@
 - import_playbook: playbooks/i3.yml
 - import_playbook: playbooks/git.yml
 - import_playbook: playbooks/rust.yml
+- import_playbook: playbooks/font.yml
+- import_playbook: playbooks/kitty.yml
 
 - name: Install setup
   hosts: 127.0.0.1
