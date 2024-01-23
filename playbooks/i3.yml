@@ -1,0 +1,21 @@
+---
+- name: i3
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: package
+      become: true
+      ignore_errors: true
+      ansible.builtin.apt:
+        pkg:
+          - i3
+
+    - name: push config
+      ansible.builtin.template:
+        src: ../templates/i3.j2
+        dest: /home/eulegang/.config/i3/config
+        owner: eulegang
+        group: eulegang
+        mode: '0644' 
+
+

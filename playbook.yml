@@ -1,5 +1,7 @@
 ---
-- import_playbook: ssh.yml
+- import_playbook: playbooks/ssh.yml
+- import_playbook: playbooks/shell.yml
+- import_playbook: playbooks/i3.yml
 
 - name: Install setup
   hosts: 127.0.0.1

@@ -15,7 +15,7 @@
 
   - name: build config
     ansible.builtin.template:
-      src: templates/ssh-config.j2
+      src: ../templates/ssh-config.j2
       dest: /home/eulegang/.ssh/config
       owner: eulegang
       group: eulegang
