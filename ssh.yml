@@ -1,0 +1,24 @@
+---
+- name: Setup ssh key
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: check ssh key
+    stat:
+      path: /home/eulegang/.ssh/github.idrsa
+    register: github_ssh
+
+  - name: generate github ssh key 
+    when: not github_ssh.stat.exists
+    command:
+      cmd: 'ssh-keygen -f /home/eulegang/.ssh/github.idrsa -b 4096 -t rsa'
+
+  - name: build config
+    ansible.builtin.template:
+      src: templates/ssh-config.j2
+      dest: /home/eulegang/.ssh/config
+      owner: eulegang
+      group: eulegang
+      mode: '0644'
+
+
