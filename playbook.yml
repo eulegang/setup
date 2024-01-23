@@ -3,6 +3,7 @@
 - import_playbook: playbooks/shell.yml
 - import_playbook: playbooks/i3.yml
 - import_playbook: playbooks/git.yml
+- import_playbook: playbooks/rust.yml
 
 - name: Install setup
   hosts: 127.0.0.1

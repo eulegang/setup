@@ -1,0 +1,34 @@
+---
+- name: rust
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: check rustup
+      stat:
+        path: /home/eulegang/.cargo/bin
+      register: cargo
+
+    - name: install rust
+      when: not cargo.stat.exists
+      command:
+        cmd: 'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh'
+
+    - name: starship
+      command:
+        cmd: 'cargo install starship'
+
+    - name: ripgrep
+      command:
+        cmd: 'cargo install ripgrep'
+
+    - name: hexyl
+      command:
+        cmd: 'cargo install hexyl'
+
+    - name: fd
+      command:
+        cmd: 'cargo install fd-find'
+
+    - name: delta
+      command:
+        cmd: 'cargo install git-delta'
