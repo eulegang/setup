@@ -56,7 +56,20 @@
         version: stable
 
     - name: fetch nvim config
+      ignore_errors: true
       ansible.builtin.git:
         repo: "ssh://github.com/eulegang/nvim.conf.git"
         dest: /home/eulegang/.config/nvim/
         version: main
+
+    - name: download lua-language-server
+      ansible.builtin.git:
+        repo: https://github.com/LuaLS/lua-language-server
+        dest: /home/eulegang/external/lua-language-server
+        version: master
+
+    - name: build lua-langague-server
+      ansible.builtin.command:
+        creates: /home/eulegang/external/lua-language-server/bin/lua-langauge-server
+        chdir: /home/eulegang/external/lua-language-server
+        cmd: './make.sh'
