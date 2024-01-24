@@ -3,6 +3,12 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
+    - name: dev packages
+      become: true
+      ansible.builtin.apt:
+        pkg:
+          - libssl-dev
+
     - name: check rustup
       stat:
         path: /home/eulegang/.cargo/bin
@@ -42,6 +48,21 @@
       command:
         cmd: 'cargo install git-delta'
         creates: '/home/eulegang/.cargo/bin/delta'
+
+    - name: cargo-watch
+      command:
+        cmd: 'cargo install cargo-watch'
+        creates: '/home/eulegang/.cargo/bin/cargo-watch'
+
+    - name: cargo-nextest
+      command:
+        cmd: 'cargo install cargo-nextest'
+        creates: '/home/eulegang/.cargo/bin/cargo-nextest'
+
+    - name: cargo-tarpaulin
+      command:
+        cmd: 'cargo install cargo-tarpaulin'
+        creates: '/home/eulegang/.cargo/bin/cargo-tarpaulin'
 
     - name: fetch rust-analyzer
       ansible.builtin.git: 
