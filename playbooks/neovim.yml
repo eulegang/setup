@@ -49,4 +49,14 @@
         creates: /usr/local/bin/nvim
         cmd: 'ninja install'
 
+    - name: setup lazy git
+      ansible.builtin.git:
+        repo: "https://github.com/folke/lazy.nvim.git"
+        dest: /home/eulegang/.local/share/nvim/lazy/lazy.nvim
+        version: stable
 
+    - name: fetch nvim config
+      ansible.builtin.git:
+        repo: "ssh://github.com/eulegang/nvim.conf.git"
+        dest: /home/eulegang/.config/nvim/
+        version: main
