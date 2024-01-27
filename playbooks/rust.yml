@@ -64,8 +64,14 @@
         cmd: 'cargo install cargo-tarpaulin'
         creates: '/home/eulegang/.cargo/bin/cargo-tarpaulin'
 
+    - name: dedbg
+      command:
+        cmd: 'cargo install dedbg'
+        creates: '/home/eulegang/.cargo/bin/dedbg'
+
     - name: fetch rust-analyzer
       ansible.builtin.git: 
+        force: true
         repo: 'https://github.com/rust-lang/rust-analyzer'
         dest: /home/eulegang/external/rust-analyzer
   
