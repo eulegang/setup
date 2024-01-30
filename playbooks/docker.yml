@@ -1,0 +1,31 @@
+---
+- name: docker
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+
+  - name: Docker
+    block:
+      - name: Docker Key
+        become: true
+        ansible.builtin.get_url:
+          url: https://download.docker.com/linux/debian/gpg
+          dest: /etc/apt/keyrings/docker.asc
+          checksum: sha256:1500c1f56fa9e26b9b8f42452a553675796ade0807cdce11975eb98170b3a570
+
+      - name: Docker Pkg Repository
+        become: true
+        ansible.builtin.apt_repository:
+            repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable"
+            state: present
+
+      - name: Docker Pkg
+        become: true
+        apt:
+          pkg: 
+          - docker-ce
+          - docker-ce-cli 
+          - containerd.io 
+          - docker-buildx-plugin 
+          - docker-compose-plugin
