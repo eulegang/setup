@@ -14,6 +14,6 @@ function install-hack() {
 
   [ -v succ ] && {
     fc-cache -f -v
-  }
+  } || true
 }
 
