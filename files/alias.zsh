@@ -11,7 +11,7 @@ alias gc='git commit'
 alias gc!='git commit --amend'
 alias gb='git branch'
 alias ga='git add'
-alias gaa='git add -a'
+alias gaa='git add -A'
 alias gd='git diff'
 
 
