@@ -18,3 +18,5 @@
 [diff]
 	colorMoved = default
 
+[commit]
+  verbose = true
