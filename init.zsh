@@ -1,6 +1,7 @@
 #! /bin/zsh
 
 source utils/cargo.zsh
+source utils/fonts.zsh
 
 echo "installing i3 config"
 cp files/i3.conf ~/.config/i3/config
@@ -17,4 +18,5 @@ cargoi exa
 cargoi starship
 cargoi git-delta delta
 
-
+echo "installing fonts"
+install-hack

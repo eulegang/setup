@@ -1,4 +1,3 @@
-
 function cargoi {
 	local pkg="${1:?Need a package to install}"
 	local bin="${2:-${1}}"
@@ -7,5 +6,3 @@ function cargoi {
 		cargo install "${pkg}"
 	}
 }
-
-
