@@ -1,2 +1,5 @@
 # setup
-ansible setup script
+
+A set of scripts to bootstrap my setup
+
+
