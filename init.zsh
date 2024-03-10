@@ -10,6 +10,9 @@ echo "installing zsh config"
 cp files/zshrc ~/.zshrc
 cp files/alias.zsh ~/.alias.zsh
 
+echo "installing kitty config"
+cp files/kitty.conf ~/.config/kitty/kitty.conf
+
 echo "installing git config"
 cp files/gitconfig ~/.gitconfig
 
