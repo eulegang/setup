@@ -1,5 +1,6 @@
 
 export PATH=${PATH}:${HOME}/external/lua-language-server/bin
+export PATH=${PATH}:${HOME}/.zig
 
 source ${HOME}/.cargo/env
 bindkey -v
