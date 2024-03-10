@@ -14,4 +14,8 @@ alias ga='git add'
 alias gaa='git add -A'
 alias gd='git diff'
 alias gapa='git add -p -A'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase --interactive'
 
