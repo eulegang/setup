@@ -1,0 +1,9 @@
+# Created by newuser for 5.9
+
+source ${HOME}/.cargo/env
+bindkey -v
+
+source <(starship init zsh)
+
+source ${HOME}/.alias.zsh
+
