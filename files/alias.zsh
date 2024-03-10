@@ -13,5 +13,5 @@ alias gb='git branch'
 alias ga='git add'
 alias gaa='git add -A'
 alias gd='git diff'
-
+alias gapa='git add -p -A'
 
