@@ -20,6 +20,9 @@ echo "installing rust programs"
 cargoi exa
 cargoi starship
 cargoi git-delta delta
+cargoi ripgrep rg
+cargoi fd-find fd
+cargoi hexyl
 
 echo "installing fonts"
 install-hack
